@@ -39,13 +39,13 @@ class role_rsyslog {
 
   class { 'rsyslog::server': }
 
-  class { 'rsyslog::server':
-    enable_tcp                => true,
-    enable_udp                => true,
-    enable_onefile            => false,
-    server_dir                => '/srv/log/',
-    custom_config             => undef,
-    high_precision_timestamps => false,
-  }
+  #class { 'rsyslog::server':
+  #  enable_tcp                => true,
+  #  enable_udp                => true,
+  #  enable_onefile            => false,
+  #  server_dir                => '/srv/log/',
+  #  custom_config             => undef,
+  #  high_precision_timestamps => false,
+  #}
 
 }
