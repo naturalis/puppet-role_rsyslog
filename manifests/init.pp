@@ -37,6 +37,8 @@
 #
 class role_rsyslog {
 
+  class { 'rsyslog::server': }
+
   class { 'rsyslog::server':
     enable_tcp                => true,
     enable_udp                => true,
