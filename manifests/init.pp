@@ -44,6 +44,7 @@ class role_rsyslog {
     server_dir                => '/srv/log/',
     custom_config             => undef,
     high_precision_timestamps => false,
+    log_templates             => "$Template procurve,"%timegenerated%: %syslogseverity-text% %HOSTNAME% %syslogtag%%msg:::drop-last-lf%\n""
   }
 
 }
