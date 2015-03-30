@@ -42,9 +42,8 @@ class role_rsyslog {
     enable_udp                => true,
     enable_onefile            => false,
     server_dir                => '/srv/log/',
-    custom_config             => undef,
+    custom_config             => 'role_rsyslog/procurve.conf.erb',
     high_precision_timestamps => false,
-    log_templates             => "$Template procurve,"%timegenerated%: %syslogseverity-text% %HOSTNAME% %syslogtag%%msg:::drop-last-lf%\n""
   }
 
 }
