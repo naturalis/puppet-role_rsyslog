@@ -1,4 +1,5 @@
-# Rudi Broekhuizen: Added two lines to Templates and Rules sections:
+# Rudi Broekhuizen: Added two lines to Templates and Rules sections to receive syslog pri from procurve syslog messages.
+# Original file: https://github.com/saz/puppet-rsyslog/blob/master/templates/server-default.conf.erb
 # $Template procurve,"%timegenerated%: %syslogseverity-text% %HOSTNAME% %syslogtag%%msg:::drop-last-lf%\n"
 # *.* -/srv/log/procurve.log;procurve
 
