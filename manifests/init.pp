@@ -40,7 +40,7 @@ class role_rsyslog {
   class { 'rsyslog::server':
     enable_tcp                => true,
     enable_udp                => true,
-    enable_onefile            => false,
+    enable_onefile            => true,
     server_dir                => '/srv/log/',
     custom_config             => 'role_rsyslog/procurve.conf.erb',
     high_precision_timestamps => false,
