@@ -15,8 +15,6 @@
 <% if @enable_onefile == false -%>
 
 # Templates
-$Template procurve,"%timegenerated%: %syslogseverity-text% %HOSTNAME% %syslogtag%%msg:::drop-last-lf%\n"
-
 $Template dynAuditLog,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%source:R,ERE,1,DFLT:([A-Za-z-]*)--end%<%= scope.lookupvar('rsyslog::server::logpath') -%>audit.log"
 $Template dynAuthLog,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%source:R,ERE,1,DFLT:([A-Za-z-]*)--end%<%= scope.lookupvar('rsyslog::server::logpath') -%>auth.log"
 $Template dynSyslog,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%source:R,ERE,1,DFLT:([A-Za-z-]*)--end%<%= scope.lookupvar('rsyslog::server::logpath') -%>syslog"
@@ -29,8 +27,6 @@ $Template dynDebug,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%sourc
 $Template dynMessages,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%source:R,ERE,1,DFLT:([A-Za-z-]*)--end%<%= scope.lookupvar('rsyslog::server::logpath') -%>messages"
 
 # Rules
-*.* -/srv/log/procurve.log;procurve
-
 auth,authpriv.*         ?dynAuthLog
 *.*;auth,authpriv.none,mail.none,cron.none      -?dynSyslog
 cron.*              ?dynCronLog
@@ -52,7 +48,8 @@ $Template auditFormat,"%msg%\n"
 
 <% else -%>
 # Template
-$Template dynAllMessages,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%source:R,ERE,1,DFLT:([A-Za-z-]*)--end%<%= scope.lookupvar('rsyslog::server::logpath') -%>messages"
+$Template procurve,"%timegenerated%: %syslogseverity-text% %HOSTNAME% %syslogtag%%msg:::drop-last-lf%\n"
+#$Template dynAllMessages,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%source:R,ERE,1,DFLT:([A-Za-z-]*)--end%<%= scope.lookupvar('rsyslog::server::logpath') -%>messages"
 
 # Rules
 *.*                 -?dynAllMessages
