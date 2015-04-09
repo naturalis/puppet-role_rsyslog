@@ -1,9 +1,6 @@
-# Rudi Broekhuizen: Added one line to receive syslog pri information
+# Rudi Broekhuizen: Added lines 48 and 52 to receive syslog pri information
 # Original file: https://github.com/saz/puppet-rsyslog/blob/master/templates/server-default.conf.erb
 # See http://rsyslog.readthedocs.org/en/latest/tutorials/recording_pri.html
-#
-# $Template dynAllMessages,"%timegenerated%: %syslogseverity-text% %HOSTNAME% %syslogtag%%msg:::drop-last-lf%\n"
-
 
 # File is managed by puppet
 
@@ -52,7 +49,8 @@ $Template dynAllMessages,"%timegenerated%: %syslogseverity-text% %HOSTNAME% %sys
 #$Template dynAllMessages,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%source:R,ERE,1,DFLT:([A-Za-z-]*)--end%<%= scope.lookupvar('rsyslog::server::logpath') -%>messages"
 
 # Rules
-*.*                 -?dynAllMessages
+*.* -/srv/log/messages;dynAllMessages
+#*.*                 -?dynAllMessages
 <% end -%>
 
 <% # Common footer across all templates -%>
