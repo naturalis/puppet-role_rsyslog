@@ -42,7 +42,7 @@ class role_rsyslog {
     enable_udp                => true,
     enable_onefile            => true,
     server_dir                => '/srv/log/',
-    custom_config             => 'role_rsyslog/procurve.conf.erb',
+    custom_config             => 'role_rsyslog/server-custom.conf.erb',
     high_precision_timestamps => false,
   }
 
