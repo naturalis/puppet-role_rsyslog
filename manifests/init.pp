@@ -43,7 +43,7 @@ class role_rsyslog {
     enable_onefile            => true,
     server_dir                => '/srv/log/',
     custom_config             => 'role_rsyslog/server-custom.conf.erb',
-    high_precision_timestamps => false,
+    high_precision_timestamps => true,
   }
 
 }
