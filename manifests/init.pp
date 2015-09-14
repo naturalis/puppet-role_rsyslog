@@ -37,6 +37,7 @@
 #
 class role_rsyslog {
 
+  # Install rsyslog server
   class { 'rsyslog::server':
     enable_tcp                => true,
     enable_udp                => true,
@@ -45,5 +46,12 @@ class role_rsyslog {
     custom_config             => 'role_rsyslog/server-custom.conf.erb',
     high_precision_timestamps => true,
   }
-
+  
+  # Create logrotate rule
+  logrotate::rule { 'messages':
+    path   => '/srv/log/messages',
+    rotate => 1,
+    size   => '1G',
+  }
+  
 }
