@@ -41,6 +41,7 @@ management, etc.) this is the time to mention it.
 ### Setup Requirements
 
 saz/rsyslog
+rodjek/logrotate
 
 ### Beginning with role_rsyslog
 
