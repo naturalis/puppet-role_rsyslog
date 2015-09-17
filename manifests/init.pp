@@ -47,7 +47,7 @@ class role_rsyslog {
     high_precision_timestamps => true,
   }
   
-  # Create logrotate rule
+  # Create logrotate rule; rotate every hour, only if file is bigger than 500MB, keep 1 rotated files
   logrotate::rule { 'messages':
     path         => '/srv/log/messages',
     rotate       => 1,
