@@ -49,9 +49,11 @@ class role_rsyslog {
   
   # Create logrotate rule
   logrotate::rule { 'messages':
-    path   => '/srv/log/messages',
-    rotate => 1,
-    size   => '1G',
+    path         => '/srv/log/messages',
+    rotate       => 1,
+    rotate_every => 'hour',
+    size         => '500M',
+    postrotate   => 'reload rsyslog >/dev/null 2>&1 || true',
   }
   
 }
