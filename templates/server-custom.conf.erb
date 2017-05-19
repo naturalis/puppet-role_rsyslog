@@ -45,7 +45,7 @@ $Template auditFormat,"%msg%\n"
 
 <% else -%>
 # Template
-$Template dynAllMessages,"%timegenerated%: %syslogseverity-text% %HOSTNAME% %syslogtag%%msg:::drop-last-lf%\n"
+$Template dynAllMessages,"%timereported%: %syslogseverity-text% %HOSTNAME% %syslogtag%%msg:::drop-last-lf%\n"
 #$Template dynAllMessages,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%source:R,ERE,1,DFLT:([A-Za-z-]*)--end%<%= scope.lookupvar('rsyslog::server::logpath') -%>messages"
 
 # Rules
